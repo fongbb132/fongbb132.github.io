@@ -128,13 +128,13 @@ function mouseReleased(){
         if(abs(mouseX-circles[i].x)<3&&abs(mouseY-circles[i].y)<3){
             angle = atan2(circles[i].y-mouseY, mouseX-circles[i].x-mouseX);
             
-            circles[i].xVelocity = 100*cos(angle)*(Math.random()+0.5);
+            circles[i].xVelocity = 50*cos(angle)*(Math.random()*2+0.5);
             if(cos(angle)>0){
                 circles[i].xAcceleration = -1;
             }else{
                 circles[i].xAcceleration = 1;
             }
-            circles[i].yVelocity = 100*sin(angle)*(Math.random()+0.5);
+            circles[i].yVelocity = 50*sin(angle)*(Math.random()*2+0.5);
             if(sin(angle)>0){
                 circles[i].yAcceleration = -1;
             }else{
@@ -142,13 +142,13 @@ function mouseReleased(){
             }
         }else{
             angle = Math.random()*2*PI;
-            circles[i].xVelocity = 100*cos(angle)*(Math.random()+0.5);
+            circles[i].xVelocity = 50*cos(angle)*(Math.random()*2+0.5);
             if(cos(angle)>0){
                 circles[i].xAcceleration = -1;
             }else{
                 circles[i].xAcceleration = 1;
             }
-            circles[i].yVelocity = 100*sin(angle)*(Math.random()+0.5);
+            circles[i].yVelocity = 50*sin(angle)*(Math.random()*2+0.5);
             if(sin(angle)>0){
                 circles[i].yAcceleration = -1;
             }else{
