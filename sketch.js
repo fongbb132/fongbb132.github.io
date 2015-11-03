@@ -91,7 +91,7 @@ function draw() {
         fill(circleColor3);
         ellipse(circleX, circleY, circleRadius/3, circleRadius/3);        
     }
-    image(cursor, mouseX-50 ,mouseY-50, 100,100);
+    image(cursor, mouseX ,mouseY, 100,100);
 
 }
 
