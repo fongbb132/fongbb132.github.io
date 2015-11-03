@@ -33,7 +33,7 @@ function setup() {
     }
     smileImg = loadImage("assets/smile.png");
     sadImg = loadImage("assets/sad.png");
-    cursor = smileImg;
+    cursor = sadImg;
 }
 
 function draw() {
@@ -57,7 +57,7 @@ function draw() {
             circles[i].xAcceleration = 0;
             circles[i].yAcceleration = 0;
         }
-        cursor = sadImg;
+        cursor = smileImg;
     }        
     
     for(i = 0; i<numCircle;i++){
