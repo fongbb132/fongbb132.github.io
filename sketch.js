@@ -6,6 +6,7 @@ var circles = [];
 time = 0;
 beginTime = 0;
 numCircle = 600;
+cursor = "";
 function setup() {
   // uncomment this line to make the canvas the full size of the window
    createCanvas(windowWidth, windowHeight);
@@ -30,6 +31,9 @@ function setup() {
         }
         circles.push(a);
     }
+    smileImg = loadImage("assets/smile.png");
+    sadImg = loadImage("assets/sad.png");
+    cursor = smileImg;
 }
 
 function draw() {
@@ -53,6 +57,7 @@ function draw() {
             circles[i].xAcceleration = 0;
             circles[i].yAcceleration = 0;
         }
+        cursor = sadImg;
     }        
     
     for(i = 0; i<numCircle;i++){
@@ -86,6 +91,8 @@ function draw() {
         fill(circleColor3);
         ellipse(circleX, circleY, circleRadius/3, circleRadius/3);        
     }
+    image(cursor, mouseX+50 ,mouseY+50, 100,100);
+
 }
 
 function rect1(x, y, w, h, angle){
@@ -156,6 +163,7 @@ function mouseReleased(){
             }
         }
     }
+    cursor = smileImg;
     beginTime = time;
 }
 
