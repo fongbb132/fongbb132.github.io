@@ -5,7 +5,7 @@ var color3 = ["#FFD069", "#FFE8B5","#CCBA91"]; //yellow
 var circles = [];
 time = 0;
 beginTime = 0;
-numCircle = 600;
+numCircle = 800;
 cursor = "";
 function setup() {
   // uncomment this line to make the canvas the full size of the window
