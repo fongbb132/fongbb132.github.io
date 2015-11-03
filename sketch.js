@@ -163,7 +163,7 @@ function mouseReleased(){
             }
         }
     }
-    cursor = smileImg;
+    cursor = sadImg;
     beginTime = time;
 }
 
