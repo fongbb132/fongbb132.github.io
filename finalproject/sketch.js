@@ -240,7 +240,7 @@ function puzzle(path,xLoc, yLoc){
                     this.currentX += 4.5;
                 }
                 if (!paper2.isPlaying() ) { 
-                    paper2.loop();
+                    paper2.play();
                 } 
             }else{
                 if (paper2.isPlaying() ) { 
@@ -254,7 +254,7 @@ function puzzle(path,xLoc, yLoc){
                     this.currentY += 4.5;
                 }
                 if (!paper2.isPlaying() ) { 
-                    paper2.loop();
+                    paper2.play();
                 } 
             }else{
                 if(paper2.isPlaying){
