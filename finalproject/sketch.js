@@ -269,11 +269,11 @@ function puzzle(path,xLoc, yLoc){
             var centerX = width/2;
             var centerY = height/2;
 
-            var angle = atan2(this.currentY-centerY, this.currentX-centerX);
-            var distance = sqrt(pow(this.currentX-centerX,2)+pow(this.currentY-centerY,2));
+            var angle = atan2(this.currentY-mouseY, this.currentX-mouseX);
+            var distance = sqrt(pow(this.currentX-mouseX,2)+pow(this.currentY-mouseY,2));
             angle += 0.01;
-            this.currentX = distance*cos(angle)+centerX;
-            this.currentY = distance*sin(angle)+centerY;
+            this.currentX = distance*cos(angle)+mouseX;
+            this.currentY = distance*sin(angle)+mouseY;
             if (paper2.isPlaying() ) { 
             } else {
                 paper2.play();
