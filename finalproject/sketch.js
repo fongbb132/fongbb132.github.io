@@ -270,7 +270,9 @@ function puzzle(path,xLoc, yLoc){
             angle += 0.01;
             this.currentX = distance*cos(angle)+centerX;
             this.currentY = distance*sin(angle)+centerY;
-            paper2.loop();
+            if (!paper2.isPlaying()) { 
+                paper2.play();
+            }
         }else if(state == 4){
             if(paper2.isPlaying){
                 paper2.stop();
