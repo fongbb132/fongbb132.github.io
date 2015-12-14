@@ -186,6 +186,7 @@ function draw() {
                 finish = false;
             }
         }
+
         if(finish && counter>0){
             image(img1,widthOffset, heightOffset, img1.width/ratio, img1.height/ratio );
             counter-=0.1;
@@ -269,8 +270,8 @@ function puzzle(path,xLoc, yLoc){
             var centerX = width/2;
             var centerY = height/2;
 
-            var angle = atan2(this.currentY-mouseY, this.currentX-mouseX);
-            var distance = sqrt(pow(this.currentX-mouseX,2)+pow(this.currentY-mouseY,2));
+            var angle = atan2(this.targetY-mouseY, this.targetX-mouseX);
+            var distance = sqrt(pow(this.targetX-centerX,2)+pow(this.targetY-centerY,2));
             angle += 0.01;
             this.currentX = distance*cos(angle)+mouseX;
             this.currentY = distance*sin(angle)+mouseY;
