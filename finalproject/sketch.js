@@ -154,7 +154,6 @@ function draw() {
     for(var a = 0; a<35;a++){
         pictures[a].update();
     }
-    
     if(state == 0){
         image(img1,widthOffset, heightOffset, img1.width/ratio, img1.height/ratio );
     }
@@ -187,7 +186,6 @@ function draw() {
                 finish = false;
             }
         }
-       
         if(finish && counter>0){
             image(img1,widthOffset, heightOffset, img1.width/ratio, img1.height/ratio );
             counter-=0.1;
@@ -247,6 +245,10 @@ function puzzle(path,xLoc, yLoc){
                 } else {
                     paper2.play();
                 }
+            }else{
+                if (paper2.isPlaying() ) { 
+                    paper2.stop();
+                }
             }
             if(Math.abs(this.currentY-this.targetY)>4){
                 if(this.currentY>this.targetY){
@@ -257,6 +259,10 @@ function puzzle(path,xLoc, yLoc){
                 if (paper2.isPlaying() ) { 
                 } else {
                     paper2.play();
+                }
+            }else{
+                if(paper2.isPlaying){
+                    paper2.stop();
                 }
             }
         }else if(state == 3){
