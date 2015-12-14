@@ -142,6 +142,8 @@ function setup() {
         puz.currentY = puz.currentY + heightOffset;
         puz.targetX = puz.currentX+(i%7-3)*(width/17.5);
         puz.targetY = puz.currentY+(Math.floor(i/7)-2)*(height/12.5);
+        puz.tempX = puz.targetX;
+        puz.tempY = puz.targetY;
         pictures.push(puz);
     }
 }
@@ -216,7 +218,8 @@ function puzzle(path,xLoc, yLoc){
     this.currentY = yLoc;
     this.targetX = 0;
     this.targetY = 0;
-    
+    this.tempX = 0;
+    this.tempY = 0;
     this.update = function(){
         if(state==1){
             if(Math.abs(this.currentX - this.x)>4){
@@ -261,9 +264,12 @@ function puzzle(path,xLoc, yLoc){
             var centerX = width/2;
             var centerY = height/2;
 
-            var angle = atan2(this.currentY-centerY, this.currentX-centerX);
-            var distance = sqrt(pow(this.targetX-centerX,2)+pow(this.targetY-centerY,2));
+            var angle = atan2(this.tempY-centerY, this.tempX-centerX);
+            var distance = sqrt(pow(this.tempX-centerX,2)+pow(this.tempY-centerY,2));
             angle += 0.01;
+            this.tempX = distance*cos(angle)+centerX;
+            this.tempY = distance*sin(angle)+centerY;
+            
             this.currentX = distance*cos(angle)+mouseX;
             this.currentY = distance*sin(angle)+mouseY;
             if (paper2.isPlaying() ) { 
