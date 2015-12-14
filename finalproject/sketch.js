@@ -165,8 +165,7 @@ function draw() {
             for(var i = 0; i < counter1;i++){
                 image(pictures[i].img,pictures[i].currentX,pictures[i].currentY, pictures[i].img.width/ratio, pictures[i].img.height/ratio);
             }
-            if (paper1.isPlaying() ) { 
-            } else {
+            if (!paper1.isPlaying() ) { 
                 paper1.play();
             }
         }else{
@@ -179,7 +178,8 @@ function draw() {
         for(var i = 0; i < 35;i++){
             image(pictures[i].img,pictures[i].currentX,pictures[i].currentY, pictures[i].img.width/ratio, pictures[i].img.height/ratio);
         }
-    }else if(state == 4 ){
+    }
+    else if(state == 4 ){
         var finish = true;
         for(var b = 0; b <35; b++){
             if(Math.abs(pictures[b].currentX - pictures[b].x)>4||Math.abs(pictures[b].currentY - pictures[b].y)>4){
@@ -193,10 +193,9 @@ function draw() {
             for(var i = 0; i < counter1;i++){
                 image(pictures[i].img,pictures[i].currentX,pictures[i].currentY, pictures[i].img.width/ratio, pictures[i].img.height/ratio);
             }
-            if (paper1.isPlaying() ) { 
-            } else {
+            if (!paper1.isPlaying() ) { 
                 paper1.play();
-            }
+            } 
         }else if(!finish){
             for(var i = 0; i < 35;i++){
                 image(pictures[i].img,pictures[i].currentX,pictures[i].currentY, pictures[i].img.width/ratio, pictures[i].img.height/ratio);
@@ -240,11 +239,9 @@ function puzzle(path,xLoc, yLoc){
                 }else if(this.currentX < this.targetX){
                     this.currentX += 4.5;
                 }
-                
-                if (paper2.isPlaying() ) { 
-                } else {
-                    paper2.play();
-                }
+                if (!paper2.isPlaying() ) { 
+                    paper2.loop();
+                } 
             }else{
                 if (paper2.isPlaying() ) { 
                     paper2.stop();
@@ -256,10 +253,9 @@ function puzzle(path,xLoc, yLoc){
                 }else if(this.currentY<this.targetY){
                     this.currentY += 4.5;
                 }
-                if (paper2.isPlaying() ) { 
-                } else {
-                    paper2.play();
-                }
+                if (!paper2.isPlaying() ) { 
+                    paper2.loop();
+                } 
             }else{
                 if(paper2.isPlaying){
                     paper2.stop();
@@ -274,11 +270,13 @@ function puzzle(path,xLoc, yLoc){
             angle += 0.01;
             this.currentX = distance*cos(angle)+centerX;
             this.currentY = distance*sin(angle)+centerY;
-            if (paper2.isPlaying() ) { 
-            } else {
-                paper2.play();
+            if (!paper2.isPlaying()) { 
+                paper2.loop();
             }
         }else if(state == 4){
+            if(paper2.isPlaying){
+                paper2.stop();
+            }
             if(Math.abs(this.currentX - this.x)>4){
                 if(this.currentX>this.x){
                     this.currentX -= 4.5;
