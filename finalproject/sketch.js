@@ -259,6 +259,8 @@ function puzzle(path,xLoc, yLoc){
                     paper2.stop();
                 }
             }
+            this.tempX = this.currentX;
+            this.tempY = this.currentY;
             
         }else if(state == 3){
             var centerX = width/2;
@@ -269,7 +271,7 @@ function puzzle(path,xLoc, yLoc){
             angle += 0.01;
             this.tempX = distance*cos(angle)+centerX;
             this.tempY = distance*sin(angle)+centerY;
-            
+
             this.currentX = distance*cos(angle)+mouseX;
             this.currentY = distance*sin(angle)+mouseY;
             if (paper2.isPlaying() ) { 
