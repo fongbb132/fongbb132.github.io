@@ -235,42 +235,33 @@ function puzzle(path,xLoc, yLoc){
             }
         }
         if(state == 2){
-            if(Math.abs(this.currentX - this.targetX)>4){
+            if(Math.abs(this.currentX - this.targetX)>4||Math.abs(this.currentY-this.targetY)>4){
                 if(this.currentX>this.targetX){
                     this.currentX -= 4.5;
                 }else if(this.currentX < this.targetX){
                     this.currentX += 4.5;
                 }
-                
-                if (paper2.isPlaying() ) { 
-                } else {
-                    paper2.play();
-                }
-            }else{
-                if (paper2.isPlaying() ) { 
-                    paper2.stop();
-                }
-            }
-            if(Math.abs(this.currentY-this.targetY)>4){
+
                 if(this.currentY>this.targetY){
                     this.currentY -= 4.5;
                 }else if(this.currentY<this.targetY){
                     this.currentY += 4.5;
                 }
-                if (paper2.isPlaying() ) { 
-                } else {
+                
+                if (!paper2.isPlaying() ) { 
                     paper2.play();
-                }
+                } 
             }else{
                 if(paper2.isPlaying()){
                     paper2.stop();
                 }
             }
+            
         }else if(state == 3){
             var centerX = width/2;
             var centerY = height/2;
 
-            var angle = atan2(this.targetY-centerY, this.targetX-centerX);
+            var angle = atan2(this.currentY-centerY, this.currentX-centerX);
             var distance = sqrt(pow(this.targetX-centerX,2)+pow(this.targetY-centerY,2));
             angle += 0.01;
             this.currentX = distance*cos(angle)+mouseX;
@@ -296,7 +287,6 @@ function puzzle(path,xLoc, yLoc){
             }
         }
     }
-    
 }
 
 function mouseClicked() {
