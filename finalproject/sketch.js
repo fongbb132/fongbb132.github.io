@@ -238,7 +238,7 @@ function puzzle(path,xLoc, yLoc){
             }
         }
         if(state == 2){
-            if(Math.abs(this.currentX - this.targetX)>4||Math.abs(this.currentY-this.targetY)>4){
+            if(Math.abs(this.currentX - this.targetX)>5||Math.abs(this.currentY-this.targetY)>5){
                 if(this.currentX>this.targetX){
                     this.currentX -= 4.5;
                 }else if(this.currentX < this.targetX){
