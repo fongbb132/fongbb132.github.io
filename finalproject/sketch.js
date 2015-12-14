@@ -177,11 +177,11 @@ function draw() {
             }
         }
     }
-    else if(state == 2||state==3){
+    else if(state == 2||state==3||state ==4){
         for(var i = 0; i < 35;i++){
             image(pictures[i].img,pictures[i].currentX,pictures[i].currentY, pictures[i].img.width/ratio, pictures[i].img.height/ratio);
         }
-    }else if(state == 4 ){
+    }else if(state == 5 ){
         var finish = true;
         for(var b = 0; b <35; b++){
             if(Math.abs(pictures[b].currentX - pictures[b].x)>4||Math.abs(pictures[b].currentY - pictures[b].y)>4){
@@ -237,7 +237,31 @@ function puzzle(path,xLoc, yLoc){
                 }
             }
         }
-        if(state == 2){
+        
+        else if(state == 2){
+            if(Math.abs(this.currentX - this.targetX)>1||Math.abs(this.currentY-this.targetY)>1){
+                if(this.currentX>this.targetX){
+                    this.currentX -= 4.5;
+                }else if(this.currentX < this.targetX){
+                    this.currentX += 4.5;
+                }
+
+                if(this.currentY>this.targetY){
+                    this.currentY -= 4.5;
+                }else if(this.currentY<this.targetY){
+                    this.currentY += 4.5;
+                }
+                
+                if (!paper2.isPlaying() ) { 
+                    paper2.play();
+                } 
+            }else{
+                if(paper2.isPlaying()){
+                    paper2.stop();
+                }
+            }
+        }
+        else if(state == 3){
             if(Math.abs(this.currentX - this.targetX)>5||Math.abs(this.currentY-this.targetY)>5){
                 if(this.currentX>this.targetX){
                     this.currentX -= 4.5;
@@ -262,7 +286,7 @@ function puzzle(path,xLoc, yLoc){
             this.tempX = this.currentX;
             this.tempY = this.currentY;
             
-        }else if(state == 3){
+        }else if(state == 4){
             var centerX = width/2;
             var centerY = height/2;
 
@@ -278,7 +302,7 @@ function puzzle(path,xLoc, yLoc){
             } else {
                 paper2.play();
             }
-        }else if(state == 4){
+        }else if(state == 5){
             if(Math.abs(this.currentX - this.x)>4){
                 if(this.currentX>this.x){
                     this.currentX -= 4.5;
@@ -299,7 +323,7 @@ function puzzle(path,xLoc, yLoc){
 
 function mouseClicked() {
   state++;
-  if(state > 4){
+  if(state > 5){
       state = 1;
   }
 }
