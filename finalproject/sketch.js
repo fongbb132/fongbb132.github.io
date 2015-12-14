@@ -270,7 +270,7 @@ function puzzle(path,xLoc, yLoc){
             var centerX = width/2;
             var centerY = height/2;
 
-            var angle = atan2(this.targetY-mouseY, this.targetX-mouseX);
+            var angle = atan2(this.targetY-centerY, this.targetX-centerX);
             var distance = sqrt(pow(this.targetX-centerX,2)+pow(this.targetY-centerY,2));
             angle += 0.01;
             this.currentX = distance*cos(angle)+mouseX;
